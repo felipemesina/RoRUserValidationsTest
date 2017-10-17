@@ -16,4 +16,6 @@ module SessionsHelper
     redirect_to root_path
   end
 
+  #my git is not uploading so i am making a comment to modify
+
 end
