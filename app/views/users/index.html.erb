@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Log in and Registration</title>
+  </head>
+  <body>
+  <div>
+    <h1>Log in</h1>
+    <form action="/log_in" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <p>
+        <label for="name">Name</label>
+      </p>
+      <input type="text" name="user[name]">
+      <p>
+        <label for="password">Password</label>
+      </p>
+      <input type="password" name="user[password]">
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+    </form>
+
+
+
+  </div>
+  <div>
+    <h1>Register</h1>
+    <form action="/users" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <p>
+        <label for="name">Name</label>
+      </p>
+      <input type="text" name="user[name]">
+      <p>
+        <label for="email">Email</label>
+      </p>
+      <input type="text" name="user[email]">
+      <p>
+        <label for="password">Password</label>
+      </p>
+      <input type="password" name="user[password]">
+      <p>
+        <label for="password">Confirm Password</label>
+      </p>
+      <input type="password" name="user[password_confirmation]">
+      <p>
+        <input type="submit" value="Register">
+      </p>
+    </form>
+  </div>
+
+  <% if flash[:errors]%>
+    <% flash[:errors].each do |e| %>
+      <p><%= e %></p>
+    <% end %>
+  <% end %>
+
+  </body>
+</html>
